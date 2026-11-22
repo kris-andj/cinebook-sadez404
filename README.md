@@ -22,24 +22,7 @@ CineBook je spletna aplikacija za rezervacijo kino vstopnic, zgrajena z mikrosto
 
 ## Arhitektura
 
-```
-                    ┌──────────────┐
-                    │   Frontend   │
-                    │ (React/Vue)  │
-                    └──────┬───────┘
-                           │
-                    ┌──────▼───────┐
-                    │ API Gateway  │  preveri JWT, posreduje zahteve
-                    └──────┬───────┘
-     ┌──────────────┬──────┴───────┬──────────────────┐
-     ▼              ▼              ▼                  ▼
-┌──────────┐  ┌──────────┐  ┌──────────────┐  ┌───────────────┐
-│  User    │  │  Movie   │  │ Cinema Hall  │  │  Reservation  │
-│ Service  │  │ Service  │  │ & Seat Svc   │  │   Service     │
-└────┬─────┘  └────┬─────┘  └──────┬───────┘  └───────┬───────┘
-     ▼             ▼               ▼                  ▼
-  User DB      Movie DB         Hall DB        Reservation DB
-```
+![Shema mikrostoritev CineBook](shema.png)
 
 Frontend komunicira **samo** z API Gatewayem.
 
